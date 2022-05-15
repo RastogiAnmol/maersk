@@ -23,7 +23,7 @@ http://localhost:8080/movie/
 
 http://localhost:8080/movie/1990/year
 
-http://localhost:8080/movie/9/ratings
+http://localhost:8080/movie/4/ratings
 
 Put endpoint
 =============
