@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Movie {
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
