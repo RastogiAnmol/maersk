@@ -1,6 +1,7 @@
 package io.github.rastogianmol.movieservice.controller;
 
 import io.github.rastogianmol.movieservice.dao.MovieRepository;
+import io.github.rastogianmol.movieservice.facade.MovieFacade;
 import io.github.rastogianmol.movieservice.models.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,32 +16,27 @@ import java.util.*;
 public class MovieController {
 
     @Autowired
-    private MovieRepository movieRepository;
+    private MovieFacade movieFacade;
 
     @GetMapping()
     public List<Movie> getMovies(){
-        return movieRepository.findAll();
+        return movieFacade.findAllMovies();
     }
 
     @GetMapping("/{rating}/ratings")
     public List<Movie> getMovies(@PathVariable("rating") int rating){
-        return movieRepository.findByRating(rating);
+        return movieFacade.findMoviesByRating(rating);
     }
 
     @GetMapping("/{year}/year")
     public List<Movie> getMovies(@PathVariable("year") String year){
-        return movieRepository.findByYear(year);
+        return movieFacade.findMoviesByYear(year);
     }
 
     @PostMapping()
     @ResponseStatus(code= HttpStatus.CREATED)
     public ResponseEntity<String> createMovie(@RequestBody Movie movie){
-        try{
-            movieRepository.save(movie);
+            movieFacade.createMovie(movie);
             return ResponseEntity.status(HttpStatus.CREATED).body( movie.getName() + " is created");
-        }
-        catch (Exception ex){
-            throw new ResponseStatusException(HttpStatus.CONFLICT, movie.getName() + " already exist");
-        }
     }
 }

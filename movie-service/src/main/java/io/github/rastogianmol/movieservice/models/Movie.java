@@ -1,14 +1,12 @@
 package io.github.rastogianmol.movieservice.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 public class Movie {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue
     private Long id;
 
     private String name;
