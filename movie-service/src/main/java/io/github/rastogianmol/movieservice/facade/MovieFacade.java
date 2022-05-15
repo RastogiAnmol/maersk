@@ -5,17 +5,12 @@ import io.github.rastogianmol.movieservice.exception.DataConflictException;
 import io.github.rastogianmol.movieservice.exception.InvalidDateException;
 import io.github.rastogianmol.movieservice.exception.ResourceNotFoundException;
 import io.github.rastogianmol.movieservice.models.Movie;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.commons.validator.GenericValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
-import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
 
 @Component
 public class MovieFacade {

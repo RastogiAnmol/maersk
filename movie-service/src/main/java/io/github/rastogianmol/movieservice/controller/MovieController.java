@@ -1,6 +1,5 @@
 package io.github.rastogianmol.movieservice.controller;
 
-import io.github.rastogianmol.movieservice.exception.ResourceNotFoundException;
 import io.github.rastogianmol.movieservice.facade.MovieFacade;
 import io.github.rastogianmol.movieservice.models.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
