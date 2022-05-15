@@ -35,14 +35,14 @@ public class MovieController {
     @PostMapping()
     @ResponseStatus(code= HttpStatus.CREATED)
     public ResponseEntity<String> createMovie(@RequestBody Movie movie){
-        movieFacade.createMovie(movie);
+        movieFacade.createOrUpdateMovie(movie);
         return ResponseEntity.status(HttpStatus.CREATED).body( movie.getName() + " is created");
     }
 
     @PutMapping()
     @ResponseStatus(code= HttpStatus.OK)
     public ResponseEntity<String> updateMovie(@RequestBody Movie movie){
-        movieFacade.updateMovie(movie);
+        movieFacade.createOrUpdateMovie(movie);
         return ResponseEntity.status(HttpStatus.OK).body( movie.getName() + " is updated");
     }
 }

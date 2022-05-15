@@ -23,6 +23,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(InvalidDateException.class)
+    public ResponseEntity<?> handleInvalidDateException(InvalidDateException exception, WebRequest request){
+        ErrorDetails errorDetails = new ErrorDetails(new Date(),exception.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_ACCEPTABLE);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGlobalException(Exception exception, WebRequest request){
         ErrorDetails errorDetails = new ErrorDetails(new Date(),exception.getMessage(),request.getDescription(false));
