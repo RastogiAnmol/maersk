@@ -54,7 +54,7 @@ body
 }
 
 Please test the exception thrown by typing any random URL
-
+===========================================================
 for example
-===========
+
 http://localhost:8080/movie/9/fdsfsdf
